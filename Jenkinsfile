@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+    agent { dockerfile true }
     
     triggers {
         pollSCM '* * * * *'
@@ -16,8 +16,6 @@ pipeline {
             }
         }
         stage('BuildDocker') {
-        
-	     	agent { dockerfile true }
 
             steps {
                 sh './gradlew docker'
