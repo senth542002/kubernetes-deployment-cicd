@@ -24,7 +24,7 @@ pipeline {
 
             steps {
             	script {
-                	dockerImage = './gradlew docker'
+                	dockerImage = docker.build registry + ":$BUILD_NUMBER"
             	}
             }
         }
