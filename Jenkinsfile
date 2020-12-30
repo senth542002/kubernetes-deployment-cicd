@@ -24,7 +24,7 @@ pipeline {
 
             steps {
             	script {
-                	dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                	dockerImage = docker.build "KubeDeployment-0.0.1-SNAPSHOT.jar"
             	}
             }
         }
