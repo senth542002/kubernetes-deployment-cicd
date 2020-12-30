@@ -1,4 +1,9 @@
 pipeline {
+	environment {
+	    registry = "senth542002/kubernetes-deployment"
+	    registryCredential = 'docker-hub'
+	    dockerImage = ''
+	  }
     agent any
     
     triggers {
@@ -18,15 +23,19 @@ pipeline {
         stage('BuildDocker') {
 
             steps {
-                sh './gradlew docker'
+            	script {
+                	dockerImage = './gradlew docker'
+            	}
             }
         }
         stage('Push'){
-        
-                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                    sh 'docker push senth542002/kubernetes-deployment'
-                }
-
+            steps {
+            	script {
+					docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                    dockerImage.push()
+                	}            	
+            	}
+            }
         }
     }
 }
