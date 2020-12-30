@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Push'){
             steps {
-                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://hub.docker.com/') {
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                     sh 'docker push senth542002/kubernetes-deployment'
                 }
 
