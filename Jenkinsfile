@@ -23,9 +23,7 @@ pipeline {
         stage('BuildDocker') {
 
             steps {
-            	script {
-                	dockerImage = ./gradlew docker
-            	}
+            	sh './gradlew docker'
             }
         }
         stage('Push'){
