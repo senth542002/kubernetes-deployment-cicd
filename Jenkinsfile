@@ -24,7 +24,7 @@ pipeline {
 
             steps {
             	script {
-                	dockerImage = docker.build "KubeDeployment-0.0.1-SNAPSHOT.jar"
+                	dockerImage = ./gradlew docker
             	}
             }
         }
