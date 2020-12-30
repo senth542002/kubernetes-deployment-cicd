@@ -23,7 +23,9 @@ pipeline {
         stage('BuildDocker') {
 
             steps {
-            	sh './gradlew docker'
+            	script {
+                	dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            	}
             }
         }
         stage('Push'){
