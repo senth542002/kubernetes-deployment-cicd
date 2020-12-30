@@ -22,12 +22,11 @@ pipeline {
             }
         }
         stage('Push'){
-            steps {
+        
                 docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                     sh 'docker push senth542002/kubernetes-deployment'
                 }
 
-            }
         }
     }
 }
