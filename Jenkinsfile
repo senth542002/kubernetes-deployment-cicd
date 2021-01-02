@@ -45,7 +45,6 @@ pipeline {
         stage('Deploy App to GKE') {
 	      steps {
 	        script {
-	          sh "sed -i 's/kubernetes-deployment:latest/kubernetes-deployment:$BUILD_NUMBER/g' sayhello.yml"
 	          step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, cluster: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sayhello.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 	        }
 	      }
