@@ -7,12 +7,15 @@ metadata:
 spec:
   strategy: 
     type: Recreate
+  selector:
+      matchLabels:
+        app.kubernetes.io/name: say-hello
  
   template:
     metadata:
-      name: say-hello-pod
+      name: say-hello
       labels:
-        app: say-hello-app
+        app: say-hello
         version: blue
     spec:
       containers:
@@ -28,10 +31,10 @@ kind: Service
 metadata:
   name: say-hello-svc
   labels:
-    app: say-hello-app
+    app: say-hello
 spec:
   selector:
-    app: say-hello-app
+    app: say-hello
     version: blue
   type: LoadBalancer
   ports:
