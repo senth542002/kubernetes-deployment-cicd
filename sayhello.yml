@@ -16,7 +16,6 @@ spec:
       name: say-hello
       labels:
         app: say-hello
-        version: blue
     spec:
       containers:
       - name: kubernetes-deployment
