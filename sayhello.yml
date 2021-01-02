@@ -1,0 +1,39 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: say-hello
+spec:
+  strategy: 
+    type: Recreate
+ 
+  template:
+    metadata:
+      name: say-hello-pod
+      labels:
+        app: say-hello-app
+        version: blue
+    spec:
+      containers:
+      - name: say-hello-container
+        image: senth542002/kubernetes-deployment:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: say-hello
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: say-hello-svc
+  labels:
+    app: say-hello-app
+spec:
+  selector:
+    app: say-hello-app
+    version: blue
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080

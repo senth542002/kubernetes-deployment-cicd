@@ -3,6 +3,10 @@ pipeline {
 	    registry = "senth542002/kubernetes-deployment"
 	    registryCredential = 'docker-hub'
 	    dockerImage = ''
+	    PROJECT_ID = 'say-hello-project'
+        LOCATION = 'CLUSTER-LOCATION'
+        CREDENTIALS_ID = 'say-hello'
+        CLUSTER_NAME = 'say-hello-cluster'
 	  }
     agent any
     
@@ -37,5 +41,14 @@ pipeline {
             	}
             }
         }
+        
+        stage('Deploy App to GKE') {
+	      steps {
+	        script {
+	          sh "sed -i 's/senth542002/kubernetes-deployment:$BUILD_NUMBER/g' sayhello.yml"
+	          step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, cluster: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sayhello.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+	        }
+	      }
+	    }
     }
 }
