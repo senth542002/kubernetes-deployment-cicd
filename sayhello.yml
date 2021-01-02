@@ -7,10 +7,14 @@ metadata:
 spec:
   strategy: 
     type: Recreate
+  selector:
+      matchLabels:
+        app: say-hello
  
   template:
     metadata:
-      name: say-hello
+      labels: 
+        name: say-hello
 
     spec:
       containers:
