@@ -14,8 +14,7 @@ spec:
   template:
     metadata:
       name: say-hello
-      labels:
-        app: say-hello
+
     spec:
       containers:
       - name: kubernetes-deployment
