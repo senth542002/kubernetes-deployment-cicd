@@ -9,7 +9,7 @@ spec:
     type: Recreate
   selector:
       matchLabels:
-        app.kubernetes.io/name: say-hello
+        name: say-hello
  
   template:
     metadata:
@@ -19,7 +19,7 @@ spec:
         version: blue
     spec:
       containers:
-      - name: say-hello-container
+      - name: kubernetes-deployment
         image: senth542002/kubernetes-deployment:latest
         imagePullPolicy: Always
         ports:
@@ -38,5 +38,5 @@ spec:
     version: blue
   type: LoadBalancer
   ports:
-  - port: 8080
+  - port: 80
     targetPort: 8080
