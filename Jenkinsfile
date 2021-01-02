@@ -45,7 +45,7 @@ pipeline {
         stage('Deploy App to GKE') {
 	      steps {
 	        script {
-	          step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, cluster: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sayhello.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+	          step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sayhello.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 	        }
 	      }
 	    }
