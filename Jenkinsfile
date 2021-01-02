@@ -4,7 +4,7 @@ pipeline {
 	    registryCredential = 'docker-hub'
 	    dockerImage = ''
 	    PROJECT_ID = 'say-hello-project'
-        LOCATION = 'CLUSTER-LOCATION'
+        LOCATION = 'asia-east1-a'
         CREDENTIALS_ID = 'say-hello'
         CLUSTER_NAME = 'say-hello-cluster'
 	  }
