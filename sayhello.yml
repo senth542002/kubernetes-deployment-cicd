@@ -8,7 +8,7 @@ metadata:
     app: say-hello
 spec:
   replicas: 2
-  progressDeadlineSeconds: 30
+  progressDeadlineSeconds: 40
   strategy: 
     type: RollingUpdate
     rollingUpdate: 
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: kubernetes-deployment
-        image: senth542002/kubernetes-deployment:$BUILD_NUMBER
+        image: senth542002/kubernetes-deployment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
