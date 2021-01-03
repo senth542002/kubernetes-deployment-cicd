@@ -33,7 +33,7 @@ spec:
           name: say-hello
         readinessProbe: 
           httpGet:
-            path: /v1/sayHello?name=Senthilkumar
+            path: /v1/saayHello?name=Senthilkumar
             port: 8080
 ---
 apiVersion: v1
