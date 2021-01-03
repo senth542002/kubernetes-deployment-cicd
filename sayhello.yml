@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: kubernetes-deployment
-        image: senth542002/kubernetes-deployment:latest
+        image: senth542002/kubernetes-deployment:28
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
