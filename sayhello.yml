@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service 
 metadata:
-  name: say-hello
+  name: say-hello-service
   labels:
     app: say-hello
 spec:
