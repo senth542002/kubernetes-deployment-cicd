@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: kubernetes-deployment
-        image: senth542002/kubernetes-deployment:18
+        image: senth542002/kubernetes-deployment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service 
 metadata:
-  name: say-hello-service
+  name: say-hello
   labels:
     app: say-hello
 spec:
