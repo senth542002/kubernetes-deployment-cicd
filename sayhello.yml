@@ -36,7 +36,7 @@ metadata:
 spec:
   selector:
     app: say-hello
-    version: blue
+    
   type: LoadBalancer
   ports:
   - port: 80
