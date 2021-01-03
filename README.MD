@@ -1,4 +1,5 @@
 #Jenkins Deployments to Google Kubernetes Engine
+https://cloud.google.com/solutions/continuous-delivery-jenkins-kubernetes-engine
 https://docs.bitnami.com/tutorials/create-ci-cd-pipeline-jenkins-gke/
 
 # Rolling Deployments to Kubernetes
