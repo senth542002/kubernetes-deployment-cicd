@@ -4,17 +4,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: say-hello
+  labels: 
+    app: say-hello
 spec:
+  replicas: 3
   strategy: 
     type: Recreate
   selector:
-      matchLabels:
-        app: say-hello
+    matchLabels: 
+      app: say-hello
  
   template:
     metadata:
       labels: 
-        name: say-hello
+        app: say-hello
 
     spec:
       containers:
