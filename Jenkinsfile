@@ -48,14 +48,7 @@ pipeline {
 	          sh "sed 's|'kubernetes-deployment:latest'|'kubernetes-deployment:$BUILD_NUMBER'|g' sayhello.yml"
 	          step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sayhello.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 	          
-	          sh """\ 
-	          	 if ! kubectl rollout status deployment say-hello; then \
-    					echo "Rolling back deployment!" > kubernetes-deployment:$BUILD_NUMBER \
-    			   		kubectl rollout undo deployment "say-hello \
-    					kubectl rollout status deployment say-hello \
-    					exit 1 \
-				fi \
-				"""
+	          sh 'kubectl rollout status deployment say-hello'
 	        }
 	      }
 	    }
